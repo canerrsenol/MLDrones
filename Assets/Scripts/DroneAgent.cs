@@ -91,6 +91,32 @@ public class DroneAgent : Agent
 
             EndEpisode();
         }
+        else if(hasCargo && other.CompareTag("home3") && takenPackage.packageId == "3")
+        {
+            hasCargo = false;
+            takenPackage.DropPackage(droneArea.transform);
+            AddReward(1f);
+
+            EndEpisode();
+        }
+        else if(hasCargo && other.CompareTag("home1") && takenPackage.packageId != "1")
+        {
+            AddReward(-0.3f);
+
+            EndEpisode();
+        }
+        else if(hasCargo && other.CompareTag("home2") && takenPackage.packageId != "2")
+        {
+            AddReward(-0.3f);
+
+            EndEpisode();
+        }
+        else if(hasCargo && other.CompareTag("home3") && takenPackage.packageId != "3")
+        {
+            AddReward(-0.3f);
+
+            EndEpisode();
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -116,7 +142,6 @@ public class DroneAgent : Agent
             hasCargo = true;
             takenPackage = other.collider.GetComponent<Package>();
             takenPackage.TakePackage(transform);
-
             AddReward(1f);
         }
     }

@@ -20,7 +20,7 @@ public class DroneArea : MonoBehaviour
         RemoveAllPackages();
         CreatePackagesAndSetPositions();
         float rnd = UnityEngine.Random.value;
-        if(rnd > 0.5f)
+        if(rnd > 0.3f)
         {
             SetDroneAgentsPosition();
         }
@@ -58,7 +58,7 @@ public class DroneArea : MonoBehaviour
     private void SetDroneAgentsPositionTopOfThePackage()
     {
         Vector3 packageTransform = packageList[0].transform.localPosition;
-        packageTransform.y += UnityEngine.Random.Range(3f, 4f);
+        packageTransform.y += UnityEngine.Random.Range(4f, 5f);
 
         SetDroneAtPosition(packageTransform.x, packageTransform.y, packageTransform.z);
     }

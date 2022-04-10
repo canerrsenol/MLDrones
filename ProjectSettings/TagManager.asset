@@ -12,6 +12,8 @@ TagManager:
   - home2
   - wall
   - delivered
+  - home3
+  - 03
   layers:
   - Default
   - TransparentFX
