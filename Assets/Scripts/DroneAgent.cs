@@ -34,6 +34,8 @@ public class DroneAgent : Agent
     public override void CollectObservations(VectorSensor sensor)
     {
         sensor.AddObservation(hasCargo);
+
+        sensor.AddObservation(transform.position.y - droneArea.packageList[0].transform.position.y);
     }
 
     // 3 continious actions
@@ -45,7 +47,6 @@ public class DroneAgent : Agent
         Vector3 move = new Vector3(actions.ContinuousActions[0], actions.ContinuousActions[1], actions.ContinuousActions[2]);
 
         // Add force in the direction of the move vector
-        move.y *= 1.25f;
         rigidbody.AddForce(move * moveForce * Time.fixedDeltaTime);
     }
 
@@ -101,33 +102,21 @@ public class DroneAgent : Agent
         }
         else if(hasCargo && other.CompareTag("home1") && takenPackage.packageId != "1")
         {
-            AddReward(-0.3f);
+            AddReward(-0.2f);
 
             EndEpisode();
         }
         else if(hasCargo && other.CompareTag("home2") && takenPackage.packageId != "2")
         {
-            AddReward(-0.3f);
+            AddReward(-0.2f);
 
             EndEpisode();
         }
         else if(hasCargo && other.CompareTag("home3") && takenPackage.packageId != "3")
         {
-            AddReward(-0.3f);
+            AddReward(-0.2f);
 
             EndEpisode();
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if(hasCargo && other.CompareTag("home1") && takenPackage.packageId == "2")
-        {
-            AddReward(-0.01f * Time.fixedDeltaTime);
-        }
-        if(hasCargo && other.CompareTag("home2") && takenPackage.packageId == "1")
-        {
-            AddReward(-0.01f * Time.fixedDeltaTime);
         }
     }
 
@@ -135,15 +124,16 @@ public class DroneAgent : Agent
     {
         if(other.collider.CompareTag("wall"))
         {
-            AddReward(-0.5f);
+            AddReward(-0.4f);
         }
         else if(!hasCargo && other.collider.GetComponent<Package>() != null)
         {
             hasCargo = true;
             takenPackage = other.collider.GetComponent<Package>();
             takenPackage.TakePackage(transform);
+
+            if(transform.position.y - droneArea.packageList[0].transform.position.y > 0.69f) AddReward(1.5f);
             AddReward(1f);
         }
     }
-
 }

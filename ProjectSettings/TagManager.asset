@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - collectedPackage
   - agent
   - 01
   - 02
@@ -14,6 +13,7 @@ TagManager:
   - delivered
   - home3
   - 03
+  - Package
   layers:
   - Default
   - TransparentFX

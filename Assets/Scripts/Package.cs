@@ -10,8 +10,7 @@ public class Package : MonoBehaviour
     {
         Rigidbody rb = GetComponent<Rigidbody>();
         Destroy(rb);
-        tag = "collectedPackage";
-
+        tag = "Untagged";
         transform.parent = agentTransform;
     }
 
