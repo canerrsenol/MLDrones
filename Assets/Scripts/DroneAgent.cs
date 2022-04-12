@@ -1,3 +1,4 @@
+using System;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
@@ -9,6 +10,8 @@ public class DroneAgent : Agent
 
     public Transform bottomCenterTip;
 
+    public GameObject[] houses;
+
     new private Rigidbody rigidbody;
 
     private DroneArea droneArea;
@@ -16,6 +19,8 @@ public class DroneAgent : Agent
     private Package takenPackage;
 
     private bool hasCargo;
+
+    private Transform targetTransform;
 
     public override void Initialize()
     {
@@ -35,7 +40,27 @@ public class DroneAgent : Agent
     {
         sensor.AddObservation(hasCargo);
 
-        sensor.AddObservation(transform.position.y - droneArea.packageList[0].transform.position.y);
+        CalculateTargetPosition();
+        sensor.AddObservation(targetTransform.position);
+    }
+
+    private void CalculateTargetPosition()
+    {
+        if(!hasCargo)
+        {
+            targetTransform = droneArea.packageList[0].transform;
+        }
+        else
+        {
+            foreach(GameObject house in houses)
+            {
+                if(house.CompareTag(takenPackage.packageId))
+                {
+                    targetTransform = house.transform;
+                    return;
+                }
+            }
+        }
     }
 
     // 3 continious actions

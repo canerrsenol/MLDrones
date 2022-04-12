@@ -478,6 +478,7 @@ MonoBehaviour:
   MaxStep: 5000
   moveForce: 1000
   bottomCenterTip: {fileID: 2054006054}
+  houses: []
 --- !u!4 &28726718
 Transform:
   m_ObjectHideFlags: 0
@@ -1323,6 +1324,7 @@ MonoBehaviour:
   MaxStep: 5000
   moveForce: 1000
   bottomCenterTip: {fileID: 640732224}
+  houses: []
 --- !u!4 &77891839
 Transform:
   m_ObjectHideFlags: 0
@@ -13060,6 +13062,7 @@ MonoBehaviour:
   MaxStep: 5000
   moveForce: 1000
   bottomCenterTip: {fileID: 2123368998}
+  houses: []
 --- !u!4 &1076605318
 Transform:
   m_ObjectHideFlags: 0
@@ -13823,6 +13826,7 @@ MonoBehaviour:
   MaxStep: 5000
   moveForce: 1000
   bottomCenterTip: {fileID: 1924439944}
+  houses: []
 --- !u!4 &1122109670
 Transform:
   m_ObjectHideFlags: 0
@@ -18088,6 +18092,7 @@ MonoBehaviour:
   MaxStep: 5000
   moveForce: 1000
   bottomCenterTip: {fileID: 520476924}
+  houses: []
 --- !u!4 &1547945866
 Transform:
   m_ObjectHideFlags: 0
@@ -18477,6 +18482,7 @@ MonoBehaviour:
   MaxStep: 5000
   moveForce: 1000
   bottomCenterTip: {fileID: 1763171514}
+  houses: []
 --- !u!4 &1572707596
 Transform:
   m_ObjectHideFlags: 0
@@ -18615,6 +18621,7 @@ MonoBehaviour:
   MaxStep: 5000
   moveForce: 1000
   bottomCenterTip: {fileID: 1406627427}
+  houses: []
 --- !u!4 &1585206009
 Transform:
   m_ObjectHideFlags: 0
@@ -22820,6 +22827,7 @@ MonoBehaviour:
   MaxStep: 5000
   moveForce: 1000
   bottomCenterTip: {fileID: 144982710}
+  houses: []
 --- !u!4 &1986915638
 Transform:
   m_ObjectHideFlags: 0
@@ -26184,6 +26192,7 @@ MonoBehaviour:
   MaxStep: 5000
   moveForce: 1000
   bottomCenterTip: {fileID: 1052351538}
+  houses: []
 --- !u!114 &9052004034948476602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26197,7 +26206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 2
+    VectorObservationSize: 4
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 3
