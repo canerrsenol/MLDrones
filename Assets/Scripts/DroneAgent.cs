@@ -39,14 +39,14 @@ public class DroneAgent : Agent
     public override void CollectObservations(VectorSensor sensor)
     {
         sensor.AddObservation(hasCargo);
-
+        
         CalculateTargetPosition();
-        sensor.AddObservation(targetTransform.position);
+        sensor.AddObservation(Vector3.Distance(transform.position , targetTransform.position));
     }
 
     private void CalculateTargetPosition()
     {
-        if(!hasCargo)
+        if(!hasCargo && droneArea.packageList[0] != null)
         {
             targetTransform = droneArea.packageList[0].transform;
         }
@@ -54,7 +54,19 @@ public class DroneAgent : Agent
         {
             foreach(GameObject house in houses)
             {
-                if(house.CompareTag(takenPackage.packageId))
+                string target;
+                switch(takenPackage.packageId)
+                {
+                    case "1" : target = "home1";
+                    break;
+                    case "2" : target = "home2";
+                    break;
+                    case "3" : target = "home3";
+                    break; 
+                    default : target = "Untagged";
+                    break;
+                }
+                if(house.CompareTag(target))
                 {
                     targetTransform = house.transform;
                     return;

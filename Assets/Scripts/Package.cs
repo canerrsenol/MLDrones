@@ -8,8 +8,7 @@ public class Package : MonoBehaviour
 
     public void TakePackage(Transform agentTransform)
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
-        Destroy(rb);
+        Destroy(GetComponent<Rigidbody>());
         tag = "Untagged";
         transform.parent = agentTransform;
     }
