@@ -42,6 +42,8 @@ public class DroneAgent : Agent
         
         CalculateTargetPosition();
         sensor.AddObservation(Vector3.Distance(transform.position , targetTransform.position));
+
+        sensor.AddObservation(transform.position.y);
     }
 
     private void CalculateTargetPosition()
@@ -117,7 +119,7 @@ public class DroneAgent : Agent
         {
             hasCargo = false;
             takenPackage.DropPackage(droneArea.transform);
-            AddReward(1f);
+            AddReward(2f);
             
             EndEpisode();
         }
@@ -125,7 +127,7 @@ public class DroneAgent : Agent
         {
             hasCargo = false;
             takenPackage.DropPackage(droneArea.transform);
-            AddReward(1f);
+            AddReward(2f);
 
             EndEpisode();
         }
@@ -133,7 +135,7 @@ public class DroneAgent : Agent
         {
             hasCargo = false;
             takenPackage.DropPackage(droneArea.transform);
-            AddReward(1f);
+            AddReward(2f);
 
             EndEpisode();
         }
@@ -163,14 +165,19 @@ public class DroneAgent : Agent
         {
             AddReward(-0.4f);
         }
-        else if(!hasCargo && other.collider.GetComponent<Package>() != null)
+        else if(!hasCargo && other.collider.GetComponent<Package>() != null && CheckHeight())
         {
             hasCargo = true;
             takenPackage = other.collider.GetComponent<Package>();
             takenPackage.TakePackage(transform);
 
-            if(transform.position.y - droneArea.packageList[0].transform.position.y > 0.69f) AddReward(1.5f);
             AddReward(1f);
         }
+    }
+
+    private bool CheckHeight()
+    {
+        if(transform.position.y - droneArea.packageList[0].transform.position.y > 0.69f) return true;
+        return false;
     }
 }
