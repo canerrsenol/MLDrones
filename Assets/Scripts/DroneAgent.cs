@@ -82,8 +82,21 @@ public class DroneAgent : Agent
     {
         AddReward(-1f / MaxStep);
 
+        float moveX = 0;
+        float moveY = 0;
+        float moveZ = 0;
+
+        if(actions.DiscreteActions[0] == 1) moveX = 1;
+        else if(actions.DiscreteActions[0] == 2) moveX = -1;
+
+        if(actions.DiscreteActions[1] == 1) moveY = 1;
+        else if(actions.DiscreteActions[1] == 2) moveY = -1;
+
+        if(actions.DiscreteActions[2] == 1) moveZ = 1;
+        else if(actions.DiscreteActions[2] == 2) moveZ = -1;
+
         // Calculate movement vector
-        Vector3 move = new Vector3(actions.ContinuousActions[0], actions.ContinuousActions[1], actions.ContinuousActions[2]);
+        Vector3 move = new Vector3(moveX, moveY, moveZ);
 
         // Add force in the direction of the move vector
         rigidbody.AddForce(move * moveForce * Time.fixedDeltaTime);
@@ -91,26 +104,24 @@ public class DroneAgent : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        var continiousActions = actionsOut.ContinuousActions;
+        var continiousActions = actionsOut.DiscreteActions;
 
-        Vector3 forward = Vector3.zero;
-        Vector3 left = Vector3.zero;
-        Vector3 up = Vector3.zero;
+        int forward = 0;
+        int left = 0;
+        int up = 0;
 
-        if (Input.GetKey(KeyCode.W)) forward = transform.forward;
-        else if (Input.GetKey(KeyCode.S)) forward = -transform.forward;
+        if (Input.GetKey(KeyCode.W)) forward = 1;
+        else if (Input.GetKey(KeyCode.S)) forward = 2;
 
-        if (Input.GetKey(KeyCode.A)) left = -transform.right;
-        else if (Input.GetKey(KeyCode.D)) left = transform.right;
+        if (Input.GetKey(KeyCode.A)) left = 1;
+        else if (Input.GetKey(KeyCode.D)) left = 2;
 
-        if (Input.GetKey(KeyCode.UpArrow)) up = transform.up;
-        else if (Input.GetKey(KeyCode.DownArrow)) up = -transform.up;
+        if (Input.GetKey(KeyCode.UpArrow)) up = 1;
+        else if (Input.GetKey(KeyCode.DownArrow)) up = 2;
 
-        Vector3 combined = (forward + left + up).normalized;
-
-        continiousActions[0] = combined.x;
-        continiousActions[1] = combined.y;
-        continiousActions[2] = combined.z;
+        continiousActions[0] = left;
+        continiousActions[1] = up;
+        continiousActions[2] = forward;
     }
 
     private void OnTriggerEnter(Collider other)
