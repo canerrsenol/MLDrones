@@ -6,13 +6,9 @@ using UnityEngine;
 public class DroneArea : MonoBehaviour
 {
     public TextMeshPro rewardText;
-
     public DroneAgent droneAgent;
-
     public Package[] packagePrefabs;
-
     public List<GameObject> packageList;
-
     public Transform droneSpawnTransform;
 
     public void ResetArea()
@@ -89,7 +85,6 @@ public class DroneArea : MonoBehaviour
         packageObject.transform.parent = transform;
         packageObject.transform.localPosition = ReturnRandomPos();
         
-
         packageList.Add(packageObject);
     }
 
@@ -102,5 +97,4 @@ public class DroneArea : MonoBehaviour
     {
         rewardText.text = droneAgent.GetCumulativeReward().ToString("0.00");
     }
-
 }

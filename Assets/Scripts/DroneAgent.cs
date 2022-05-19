@@ -1,4 +1,3 @@
-using System;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
@@ -7,8 +6,6 @@ using UnityEngine;
 public class DroneAgent : Agent
 {
     public float moveForce = 2f;
-
-    public Transform bottomCenterTip;
 
     public GameObject[] houses;
 
@@ -77,7 +74,6 @@ public class DroneAgent : Agent
         }
     }
 
-    // 3 continious actions
     public override void OnActionReceived(ActionBuffers actions)
     {
         AddReward(-1f / MaxStep);
@@ -95,10 +91,7 @@ public class DroneAgent : Agent
         if(actions.DiscreteActions[2] == 1) moveZ = 1;
         else if(actions.DiscreteActions[2] == 2) moveZ = -1;
 
-        // Calculate movement vector
         Vector3 move = new Vector3(moveX, moveY, moveZ);
-
-        // Add force in the direction of the move vector
         rigidbody.AddForce(move * moveForce * Time.fixedDeltaTime);
     }
 
