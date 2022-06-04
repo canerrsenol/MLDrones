@@ -13,7 +13,6 @@ public class Package : MonoBehaviour
 
     public void DropPackage(Transform droneArea)
     {
-        tag = "delivered";
         transform.parent = droneArea;
         gameObject.AddComponent<Rigidbody>();
     }
