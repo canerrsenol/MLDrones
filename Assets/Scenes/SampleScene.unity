@@ -1232,7 +1232,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 44.921, y: -100.559006, z: -75.93101}
 --- !u!1001 &772184226
 PrefabInstance:
@@ -1775,11 +1775,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.3089062, y: -0.21216078, z: 0.07089592, w: 0.9244126}
-  m_LocalPosition: {x: -0.73578644, y: 10.740383, z: -25.322422}
+  m_LocalPosition: {x: 5.3442135, y: 9.800384, z: -10.732422}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 8562747076598952962}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 27.2, y: 0, z: 0}
 --- !u!1 &1040398982
 GameObject:
@@ -2707,7 +2707,7 @@ Transform:
   - {fileID: 1290757088}
   - {fileID: 340710024}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1668787547
 MonoBehaviour:
@@ -4237,6 +4237,7 @@ Transform:
   - {fileID: 1912404549473826276}
   - {fileID: 849608265}
   - {fileID: 607767609}
+  - {fileID: 963194228}
   m_Father: {fileID: 1668787546}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4320,7 +4321,6 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 5000
   moveForce: 700
-  bottomCenterTip: {fileID: 1052351538}
   houses:
   - {fileID: 1447240271}
   - {fileID: 2127733903}
@@ -4347,7 +4347,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: b07714368e269d4429f1de1a3fd6d73f, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 394377200437aaa4288d9db087eca73c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: MLDrones
