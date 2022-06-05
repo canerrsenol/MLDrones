@@ -4,6 +4,8 @@ This is the first machine learning project I developed using the ML-Agents packa
 
 The drone is trying to pick up the packages and deliver them to the right homes.
 
+![](https://media.giphy.com/media/CZcdot6EyNY5a82q7d/giphy.gif)
+
 # Assets
 
 Drone Model:
