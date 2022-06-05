@@ -2,7 +2,7 @@
 
 This is the first machine learning project I developed using the ML-Agents package.
 
-The drone is trying to pick up the packages and deliver them to the right homes.
+The drone is trying to pick up the packages and deliver them to the right home.
 
 ![](https://media.giphy.com/media/CZcdot6EyNY5a82q7d/giphy.gif)
 
