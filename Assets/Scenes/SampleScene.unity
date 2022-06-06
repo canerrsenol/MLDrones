@@ -4347,7 +4347,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 394377200437aaa4288d9db087eca73c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: b07714368e269d4429f1de1a3fd6d73f, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: MLDrones
